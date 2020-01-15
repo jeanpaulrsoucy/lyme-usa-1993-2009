@@ -35,7 +35,8 @@ state_plot # display plot
 # Add country-level trend to state plot
 state_plot_national <- state_plot +
   geom_line(data = lyme_national, aes(x = year, y = incidence, group = 1),
-                                 colour = "blue", size = 3, alpha = 0.5)
+                                 colour = "blue", size = 3, alpha = 0.5) +
+  labs(title = "USA - 50 States and DC with National Trend")
 state_plot_national # display plot
 # ggsave("state_plot_national.png", state_plot_national) # save plot to working directory
 
