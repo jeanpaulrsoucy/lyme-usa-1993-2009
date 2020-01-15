@@ -1,10 +1,13 @@
+###  Plot USA Lyme disease incidence at state or national level ###
+### Author: Jean-Paul R. Soucy ###
+
 # Load libraries
 library(tsibble) # tidy time series
 library(ggplot2) # enhanced plotting
 
 # Load data
 lyme_national <- read.csv("https://raw.githubusercontent.com/jeanpaulrsoucy/lyme-usa-1993-2009/master/lyme_usa_1993-2009.csv",
-                     header = TRUE, stringsAsFactors = FALSE) # load data from GitHub
+                          header = TRUE, stringsAsFactors = FALSE) # load data from GitHub
 lyme_state <- read.csv("https://raw.githubusercontent.com/jeanpaulrsoucy/lyme-usa-1993-2009/master/lyme_state_1993-2009.csv",
                        header = TRUE, stringsAsFactors = FALSE) # load data from GitHub 
 
@@ -35,7 +38,7 @@ state_plot # display plot
 # Add country-level trend to state plot
 state_plot_national <- state_plot +
   geom_line(data = lyme_national, aes(x = year, y = incidence, group = 1),
-                                 colour = "blue", size = 3, alpha = 0.5) +
+            colour = "blue", size = 3, alpha = 0.5) +
   labs(title = "USA - 50 States and DC with National Trend")
 state_plot_national # display plot
 # ggsave("state_plot_national.png", state_plot_national) # save plot to working directory
